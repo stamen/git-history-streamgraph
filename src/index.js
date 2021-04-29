@@ -18,8 +18,7 @@ import {
 import { areaLabel } from 'd3-area-label';
 import { transformData } from './transformData';
 
-const dataURL =
-  'https://gist.githubusercontent.com/curran/18287ef2c4b64ffba32000aad47c292b/raw/eb2dd48d383f09a70b23dc35c3e8eb7b6c7c31ad/all-d3-commits.json';
+const dataURL = './aggregatedData.json';
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -31,9 +30,9 @@ const innerHeight = height - margin.top - margin.bottom;
 
 const xValue = (d) => d.date;
 
-const render = ({ data, stackedData }) => {
+const render = ({ dates, stackedData }) => {
   const xScale = scaleTime()
-    .domain(extent(data, xValue))
+    .domain(extent(dates))
     .range([0, innerWidth]);
 
   const yScale = scaleLinear()
