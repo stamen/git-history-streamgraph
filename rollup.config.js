@@ -10,7 +10,7 @@ export default {
 	input: 'src/index.js',
   external: ["d3", "array-blur","d3-area-label"],
 	output: {
-		file: 'public/bundle.js',
+		file: 'docs/bundle.js',
 		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
 		sourcemap: true,
     globals: {"d3":"d3", "d3-area-label":"d3","array-blur":"d3"}

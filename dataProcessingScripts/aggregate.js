@@ -57,7 +57,7 @@ const aggregate = () => {
     aggregatedData.repositories[layer] = layerData;
   }
   
-  fs.writeFileSync('../public/aggregatedData.json', JSON.stringify(aggregatedData))
+  fs.writeFileSync('../docs/aggregatedData.json', JSON.stringify(aggregatedData))
 };
 
 module.exports = aggregate;
