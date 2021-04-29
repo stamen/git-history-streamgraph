@@ -32,7 +32,6 @@ const aggregate = () => {
     (d) => d.date,
     layer
   );
-  
 
   const layerGroupedData = group(data, layer);
 
@@ -58,7 +57,7 @@ const aggregate = () => {
     aggregatedData.repositories[layer] = layerData;
   }
   
-  fs.writeFileSync('aggregatedData.json', JSON.stringify(aggregatedData))
+  fs.writeFileSync('../public/aggregatedData.json', JSON.stringify(aggregatedData))
 };
 
 module.exports = aggregate;
