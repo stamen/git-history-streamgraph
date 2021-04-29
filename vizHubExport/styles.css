@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+text {
+  font-family: SFMono-Regular, Consolas, Liberation Mono,
+    Menlo, monospace;
+  fill: white;
+  pointer-events: none;
+}
+
+line {
+  stroke: #333;
+}
+
+.area:hover {
+  fill: black;
+  stroke: white;
+}
