@@ -9,11 +9,11 @@ import { blur } from 'array-blur';
 
 const parseDate = timeParse('%Y-%m-%d');
 
-const layer = d => d.repo;
+const layer = (d) => d.repo;
 
 export const transformData = (data) => {
   const layers = Object.keys(data.repositories);
-  const dates = data.dates.map(d => parseDate(d));
+  const dates = data.dates.map((d) => parseDate(d));
 
   const dataBylayer = new Map();
 

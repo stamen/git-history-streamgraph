@@ -5,7 +5,7 @@
 
   const transformData = (data) => {
     const layers = Object.keys(data.repositories);
-    const dates = data.dates.map(d => parseDate(d));
+    const dates = data.dates.map((d) => parseDate(d));
 
     const dataBylayer = new Map();
 
@@ -46,9 +46,7 @@
   const innerHeight = height - margin.top - margin.bottom;
 
   const render = ({ dates, stackedData }) => {
-    const xScale = d3.scaleTime()
-      .domain(d3.extent(dates))
-      .range([0, innerWidth]);
+    const xScale = d3.scaleTime().domain(d3.extent(dates)).range([0, innerWidth]);
 
     const yScale = d3.scaleLinear()
       .domain([
@@ -69,15 +67,9 @@
 
     const g = svg
       .append('g')
-      .attr(
-        'transform',
-        `translate(${margin.left},${margin.top})`
-      );
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    const random = d3.randomNormal.source(d3.randomLcg(0.5))(
-      30,
-      10
-    );
+    const random = d3.randomNormal.source(d3.randomLcg(0.5))(30, 10);
 
     const colorScale = d3.scaleOrdinal().range(
       stackedData.map((country, i) => {
@@ -87,19 +79,11 @@
     );
 
     g.append('g').call(
-      d3.axisTop(xScale)
-        .tickSize(-innerHeight)
-        .tickPadding(6)
-        .ticks(ticks)
+      d3.axisTop(xScale).tickSize(-innerHeight).tickPadding(6).ticks(ticks)
     );
     g.append('g')
       .attr('transform', `translate(0, ${innerHeight})`)
-      .call(
-        d3.axisBottom(xScale)
-          .tickSize(0)
-          .tickPadding(5)
-          .ticks(ticks)
-      )
+      .call(d3.axisBottom(xScale).tickSize(0).tickPadding(5).ticks(ticks))
       .selectAll('line')
       .remove();
 
@@ -111,10 +95,9 @@
     const last = stackedData[stackedData.length - 1];
     const outlinePadding = 0.5;
     const envelope = first.map((d, i) =>
-      Object.assign(
-        [d[0] - outlinePadding, last[i][1] + outlinePadding],
-        { data: d.data }
-      )
+      Object.assign([d[0] - outlinePadding, last[i][1] + outlinePadding], {
+        data: d.data,
+      })
     );
     g.append('path').attr('d', areaGenerator(envelope));
 
@@ -123,10 +106,7 @@
       .data(stackedData)
       .enter()
       .append('a')
-      .attr(
-        'href',
-        (d) => `https://github.com/stamen/${d.key}`
-      )
+      .attr('href', (d) => `https://github.com/stamen/${d.key}`)
       .attr('target', '_blank')
       .append('path')
       .attr('class', 'area')
@@ -135,10 +115,7 @@
       .append('title')
       .text((d) => d.key);
 
-    const labels = g
-      .append('g')
-      .selectAll('text')
-      .data(stackedData);
+    const labels = g.append('g').selectAll('text').data(stackedData);
 
     labels
       .enter()

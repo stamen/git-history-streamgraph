@@ -23,4 +23,3 @@ combine();
 // Aggregate by week
 console.log('Aggregating...');
 aggregate();
-
