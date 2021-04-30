@@ -1,12 +1,12 @@
-let fs = require('fs');
-let { exec } = require('child_process');
+const fs = require('fs');
+const { exec } = require('child_process');
 
 const json = (repositories) => {
-  repositories.forEach((repo) => {
-    let txt = fs.readFileSync(`data/${repo}.🔪sv`).toString();
-    lines = txt.split('☕');
-    commits = lines.slice(1).map((line) => {
-      let l = line.split('🔪');
+  repositories.forEach(({ name }) => {
+    const txt = fs.readFileSync(`data/${name}.🔪sv`).toString();
+    const lines = txt.split('☕');
+    const commits = lines.slice(1).map((line) => {
+      const l = line.split('🔪');
       return {
         //hash: l[0],
         date: l[1],
@@ -15,7 +15,7 @@ const json = (repositories) => {
         //body: l[4]
       };
     });
-    fs.writeFileSync(`data/${repo}.json`, JSON.stringify(commits));
+    fs.writeFileSync(`data/${name}.json`, JSON.stringify(commits));
   });
 };
 

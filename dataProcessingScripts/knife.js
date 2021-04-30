@@ -4,15 +4,15 @@ const knife = (repositories) => {
   try {
     execSync('mkdir data');
   } catch (e) {}
-  repositories.forEach((repository) => {
+  repositories.forEach(({ name }) => {
     const command = [
-      `cd repositories/${repository};`,
+      `cd repositories/${name};`,
       'git log',
       '--pretty=format:"☕%h🔪%ad🔪%an🔪%s🔪%b"',
       '--date="iso"',
       '--no-merges',
       '--compact-summary',
-      `> ../../data/${repository}.🔪sv`,
+      `> ../../data/${name}.🔪sv`,
     ].join(' ');
     execSync(command, (error, stdout, stderr) => {
       if (error) console.log(error);

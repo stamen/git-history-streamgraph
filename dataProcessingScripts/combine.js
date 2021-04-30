@@ -3,11 +3,11 @@ const { exec } = require('child_process');
 
 const combine = (repositories) => {
   const commits = [];
-  repositories.forEach((repository) => {
-    const txt = fs.readFileSync(`data/${repository}.json`).toString();
+  repositories.forEach(({ name }) => {
+    const txt = fs.readFileSync(`data/${name}.json`).toString();
     const json = JSON.parse(txt);
     json.forEach((c) => {
-      c.repository = repository;
+      c.repository = name;
       commits.push(c);
     });
   });
