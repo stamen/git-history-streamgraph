@@ -9,12 +9,13 @@ const {
   stack,
   extent,
   stackOffsetWiggle,
-  stackOrderAppearance,
+  stackOrderInsideOut,
 } = d3;
 
 const parseDate = timeParse('%Y-%m-%d');
 const formatDate = timeFormat('%Y-%m-%d');
 
+//const layer = (d) => d.repository;
 const layer = (d) => d.repository;
 
 const aggregate = () => {
