@@ -55,4 +55,7 @@ const d3 = [
 
 const addOrg = (org) => (name) => ({ name, org });
 
-module.exports = d3.map(addOrg('d3')).concat(topojson.map(addOrg('topojson')));
+module.exports = d3
+  .map(addOrg('d3'))
+  .concat(topojson.map(addOrg('topojson')))
+  .concat({ name: 'crossfilter', org: 'crossfilter' });

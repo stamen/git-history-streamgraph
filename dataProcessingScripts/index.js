@@ -3,7 +3,8 @@ const knife = require('./knife');
 const json = require('./json');
 const combine = require('./combine');
 const aggregate = require('./aggregate');
-const repositories = require('./repositories');
+//const repositories = require('./repositories');
+const repositories = require('./stamenRepositories');
 
 // Clone the repositories
 console.log('Cloning...');

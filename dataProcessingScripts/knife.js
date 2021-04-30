@@ -14,9 +14,12 @@ const knife = (repositories) => {
       '--compact-summary',
       `> ../../data/${name}.🔪sv`,
     ].join(' ');
-    execSync(command, (error, stdout, stderr) => {
-      if (error) console.log(error);
-    });
+    try {
+      execSync(command);
+    } catch (error) {
+      console.log(error);
+      console.log('Continuing...');
+    }
   });
 };
 
