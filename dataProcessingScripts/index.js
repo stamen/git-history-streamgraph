@@ -3,22 +3,23 @@ const knife = require('./knife');
 const json = require('./json');
 const combine = require('./combine');
 const aggregate = require('./aggregate');
+const repositories = require('./repositories');
 
 // Clone the repositories
 console.log('Cloning...');
-clone();
+clone(repositories);
 
 // Convert to kniveSV files
 console.log('Knifing...');
-knife();
+knife(repositories);
 
 // Convert to JSON files
 console.log('Converting to JSON...');
-json();
+json(repositories);
 
 // Combine the output file
 console.log('Combining the output file...');
-combine();
+combine(repositories);
 
 // Aggregate by week
 console.log('Aggregating...');

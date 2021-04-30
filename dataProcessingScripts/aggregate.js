@@ -15,11 +15,11 @@ const {
 const parseDate = timeParse('%Y-%m-%d');
 const formatDate = timeFormat('%Y-%m-%d');
 
-const layer = (d) => d.repo;
+const layer = (d) => d.repository;
 
 const aggregate = () => {
   // Load all commits.
-  const dataString = fs.readFileSync('data/all-d3-commits.json');
+  const dataString = fs.readFileSync('data/all-commits.json');
   const data = JSON.parse(dataString);
 
   data.forEach((d) => {
