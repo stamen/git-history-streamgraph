@@ -29,7 +29,7 @@
 
     const stackedData = d3.stack()
       .offset(d3.stackOffsetWiggle)
-      .order(d3.stackOrderAppearance)
+      .order(d3.stackOrderInsideOut)
       .keys(layers)(transformedData);
 
     return { dates, stackedData };
@@ -105,9 +105,9 @@
       .selectAll('path')
       .data(stackedData)
       .enter()
-      .append('a')
-      .attr('href', (d) => `https://github.com/stamen/${d.key}`)
-      .attr('target', '_blank')
+      //    .append('a')
+      //    .attr('href', (d) => `https://github.com/stamen/${d.key}`)
+      //    .attr('target', '_blank')
       .append('path')
       .attr('class', 'area')
       .attr('d', areaGenerator)

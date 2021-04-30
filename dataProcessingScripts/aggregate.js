@@ -1,16 +1,6 @@
 const fs = require('fs');
 const d3 = require('d3');
-const {
-  timeParse,
-  timeFormat,
-  utcWeek,
-  utcWeeks,
-  group,
-  stack,
-  extent,
-  stackOffsetWiggle,
-  stackOrderInsideOut,
-} = d3;
+const { timeParse, timeFormat, utcWeek, utcWeeks, group, extent } = d3;
 
 const parseDate = timeParse('%Y-%m-%d');
 const formatDate = timeFormat('%Y-%m-%d');
