@@ -3,3 +3,4 @@ dataProcessingScripts/data
 *.swp
 node_modules
 docs/bundle.js
+docs/aggregatedData.json

@@ -3,7 +3,7 @@ import {
   stack,
   extent,
   stackOffsetWiggle,
-  stackOrderAppearance,
+  stackOrderInsideOut,
 } from 'd3';
 import { blur } from 'array-blur';
 
@@ -37,7 +37,7 @@ export const transformData = (data) => {
 
   const stackedData = stack()
     .offset(stackOffsetWiggle)
-    .order(stackOrderAppearance)
+    .order(stackOrderInsideOut)
     .keys(layers)(transformedData);
 
   return { dates, stackedData };

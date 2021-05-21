@@ -1,25 +1,16 @@
 const fs = require('fs');
 const d3 = require('d3');
-const {
-  timeParse,
-  timeFormat,
-  utcWeek,
-  utcWeeks,
-  group,
-  stack,
-  extent,
-  stackOffsetWiggle,
-  stackOrderAppearance,
-} = d3;
+const { timeParse, timeFormat, utcWeek, utcWeeks, group, extent } = d3;
 
 const parseDate = timeParse('%Y-%m-%d');
 const formatDate = timeFormat('%Y-%m-%d');
 
-const layer = (d) => d.repo;
+//const layer = (d) => d.repository;
+const layer = (d) => d.repository;
 
 const aggregate = () => {
   // Load all commits.
-  const dataString = fs.readFileSync('data/all-d3-commits.json');
+  const dataString = fs.readFileSync('data/all-commits.json');
   const data = JSON.parse(dataString);
 
   data.forEach((d) => {
