@@ -4,7 +4,8 @@ const json = require('./json');
 const combine = require('./combine');
 const aggregate = require('./aggregate');
 //const repositories = require('./repositories');
-const repositories = require('./stamenRepositories');
+//const repositories = require('./stamenRepositories');
+const repositories = require('./voxeetRepositories');
 
 // Clone the repositories
 console.log('Cloning...');

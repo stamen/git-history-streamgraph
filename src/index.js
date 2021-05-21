@@ -22,7 +22,7 @@ const dataURL = './aggregatedData.json';
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-const margin = { top: 20, right: 0, bottom: 20, left: 0 };
+const margin = { top: 20, right: 0, bottom: 20, left: 20 };
 const ticks = 20;
 
 const innerWidth = width - margin.left - margin.right;
@@ -78,7 +78,7 @@ const render = ({ dates, stackedData }) => {
   stackedData.sort((a, b) => ascending(a.index, b.index));
   const first = stackedData[0];
   const last = stackedData[stackedData.length - 1];
-  const outlinePadding = 0.5;
+  const outlinePadding = 0.01;
   const envelope = first.map((d, i) =>
     Object.assign([d[0] - outlinePadding, last[i][1] + outlinePadding], {
       data: d.data,

@@ -4,6 +4,7 @@ const knife = (repositories) => {
   try {
     execSync('mkdir data');
   } catch (e) {}
+
   repositories.forEach(({ name }) => {
     const command = [
       `cd repositories/${name};`,
